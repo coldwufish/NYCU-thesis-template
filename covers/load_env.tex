@@ -1,0 +1,110 @@
+%\documentclass[12pt, draftclsnofoot, onecolumn]{IEEEtran}  % IEEE one-column 樣板
+\documentclass[12pt,a4paper,oneside]{book}                  % NYCU碩論樣板
+%\documentclass[conference]{IEEEtran}
+%\linespread{2}
+
+\usepackage[ top=2.5cm,bottom=2.5cm,left=3cm,right=2cm ]{ geometry }
+
+%\documentclass[oneside,zh]{nctuthesis}
+%\documentclass[conference]{IEEEtran}
+%\documentclass[onecolumn, journal, 12pt]{IEEEtran}
+%\documentclass[12pt,draftcls,onecolumn]{IEEEtran}
+%\setlength{\baselineskip}{12.7pt}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{CJKutf8}
+\usepackage{indentfirst}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{cite}
+\usepackage{balance}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage[ampersand]{easylist}
+\ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=$\bullet$ ,
+Style2*=\tiny$\blacksquare$ ,Style3*=$\circ$ ,Style4*=-- )
+\usepackage{changepage}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphics}
+\usepackage{epsfig}
+\floatname{algorithm}{Algorithm}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\algorithmiccomment}{// }
+\usepackage{verbatim}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{defn}{Definition}
+
+\usepackage{eqparbox}
+\usepackage{textcomp}
+
+\usepackage[T1]{fontenc}
+\usepackage{enumerate}
+
+\renewcommand*\rmdefault{ptm}
+\usepackage[font={rm}]{caption}
+
+\renewcommand\algorithmiccomment[1]{%
+  \hfill\#\ \eqparbox{COMMENT}{#1}%
+}
+\usepackage{verbatim}
+
+\usepackage{indentfirst}
+
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+\usepackage{color}
+\usepackage{colortbl}
+\newcommand{\textred}[1]{\textcolor{red}{#1}}
+\newcommand{\textblue}[1]{\textcolor{blue}{#1}}
+\newcommand{\textcyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\myHuge}[1]{\fontsize{40}{50} #1}
+
+
+% source code hightlighting
+\usepackage{listings}
+\lstset{
+	numbers=left,
+	stepnumber=1,
+	firstnumber=1,
+	captionpos=b,
+	tabsize=2,
+	basicstyle=\small,
+	numberfirstline=true
+}
+
+% setting the page number to footer
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\pagestyle{fancy}
+% no header and footer bar
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% line height setting
+\linespread{1.5}
+\usepackage{setspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\usepackage{pdfpages}
+
+% 浮水印套件 + 語法
+\usepackage{transparent}
+\usepackage{eso-pic}
+\newcommand\MyAtPageCenter[1]{\AtPageUpperLeft{%
+\put(\LenToUnit{.42\paperwidth},\LenToUnit{-.5\paperheight}){#1}}%
+}
+% 浮水印套件 + 語法 end

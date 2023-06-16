@@ -1,0 +1,122 @@
+% overleaf的免費帳號不能邀請其他人共同編輯, 下面是我的推薦連結
+% https://www.overleaf.com?r=cc96d36b&rm=d&rs=b
+% 如果可以的話, 幫我增加一下點數 XD
+
+% 如果需要更新, 請email至: wufish@gmail.com
+
+% 載入會用到的套件, 通常不需要修改這邊的資料
+\input{covers/load_env.tex} 
+
+
+% --------------------------------------------
+% 在這邊寫自己的資料
+\newcommand{\chineseTitle}{中文論文名字}
+\newcommand{\englishTitle}{English Title}
+\newcommand{\studentCnName}{學生名字}
+\newcommand{\studentEnName}{XXXX Wu} % 書名頁
+\newcommand{\studentEnNameA}{Wu, XXXX} % 封面用
+% 英文名字有兩種寫法, 一個是姓在後, 一個是放前面. 
+
+\newcommand{\advisorCnName}{指導教授}
+\newcommand{\advisorEnName}{OOOO Tseng} % 書名頁
+\newcommand{\advisorEnNameA}{Tseng, OOOO} % 封面用
+\newcommand{\ThesisDate}{August 2022} % 碩論的日期
+\newcommand{\ThesisDateTW}{中華民國~ 一一一年八月}
+
+% --------------------------------------------
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{bkai}
+
+
+% =========================================================================
+% 封面的設定, 像是日期之類的 settings for cover 
+\newgeometry{top=3cm,bottom=3cm,left=3cm,right=3cm}
+
+% 第一頁的封面, 記得修改系所
+\input{covers/front.tex}        % 碩士論文的封面
+\input{covers/front_phd.tex}    % 博士論文版的封面 博士論文版的封面
+
+% 第二頁的書名頁, 記得修改系所, 日期
+\input{covers/inside.tex}       % 碩士論文的書名頁
+\input{covers/inside_phd.tex}   % 博士論文版的書名頁 博士論文版的書名頁
+
+\restoregeometry
+% =========================================================================
+
+% 書名頁起至最後一頁皆須加入浮水印
+\AddToShipoutPicture{
+    \put(-30,0){
+        \parbox[b][\paperheight]{\paperwidth}{%
+            \vfill
+            \centering
+            {\transparent{0.2}\includegraphics[scale=0.6]{covers/logo.png}}%
+            \vfill
+        }
+    }
+}
+
+%審定書
+%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{approval_ch.pdf}
+%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{approval_en.pdf}
+
+%授權書
+%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{auth.pdf}
+
+
+\frontmatter
+\pagenumbering{roman}
+{\fontfamily{ptm}\selectfont
+
+
+% =========================================================================
+% 中英文摘要 chinese and english abstract
+\addcontentsline{toc}{chapter}{摘\,\,\,\,\,要} \input{Sections/Abstract_chinese} \newpage
+\addcontentsline{toc}{chapter}{Abstract} \input{Sections/Abstract} \newpage
+
+% 致謝 Acknowledgement
+\addcontentsline{toc}{chapter}{誌\,\,\,\,\,謝} \input{Sections/Acknowledgement}\newpage
+% =========================================================================
+
+% 製作目錄
+\addcontentsline{toc}{chapter}{Contents} \tableofcontents \newpage
+
+% 圖片目錄
+\renewcommand{\numberline}[1]{Figure~#1\hspace*{1em}}
+\addcontentsline{toc}{chapter}{List of Figures} \listoffigures \newpage
+
+% 表格目錄, 有需要再打開
+% \renewcommand{\numberline}[1]{Table~#1\hspace*{1em}}
+% \addcontentsline{toc}{chapter}{List of Tables} \listoftables \newpage
+
+\mainmatter
+\pagenumbering{arabic} % enabling page numbering
+
+% =========================================================================
+% 論文的內文, 可以每個章節一個.tex檔案 (put your statements in the following)
+\input{Sections/1.Introduction} \newpage
+\input{Sections/2.Relatedwork} \newpage
+\input{Sections/3.Architecture} \newpage
+\input{Sections/4.Methodology} \newpage
+\input{Sections/5.Evaluation} \newpage
+\input{Sections/6.Conclusion} \newpage
+% =========================================================================
+
+
+% =========================================================================
+% 參考文獻的檔案 Reference file: ref.bib
+% ref的寫法可以參考這邊: https://hackmd.io/Bc1-FIIISka6DW15sPprAw
+\ClearShipoutPicture % 把ref的浮水印關掉
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+}
+% =========================================================================
+
+
+\end{CJK*}
+\balance
+
+\end{document}
