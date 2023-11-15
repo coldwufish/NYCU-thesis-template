@@ -30,3 +30,4 @@ https://www.overleaf.com/latex/templates/nycu-thesis-template/jgcmcnchmbrc
 閒聊: 大概每年的6月份會更新一下. 除非我換工作離開學校(!?) 不然應該會一直更新下去 XD
 
 * 2023.06: 更新學校浮水印, 改了一下浮水印的語法 (原本的會噴error msg), 也把一些環境變數(usepackage那些)弄到另一個檔案, 看起來會比較清爽!?
+* 2023.11: 竟然有人發現編排順序跟學校的格式不一樣!! (致謝應該要往前挪一個) 之前都沒人注意到 XDD
