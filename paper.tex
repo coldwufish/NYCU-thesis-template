@@ -30,20 +30,20 @@
 \begin{CJK*}{UTF8}{bkai}
 
 
-% =========================================================================
+% =============================================================
 % 封面的設定, 像是日期之類的 settings for cover 
 \newgeometry{top=3cm,bottom=3cm,left=3cm,right=3cm}
 
-% 第一頁的封面, 記得修改系所
+% 1. 第一頁的封面, 記得修改系所
 \input{covers/front.tex}        % 碩士論文的封面
 \input{covers/front_phd.tex}    % 博士論文版的封面 博士論文版的封面
 
-% 第二頁的書名頁, 記得修改系所, 日期
+% 2. 第二頁的書名頁, 記得修改系所, 日期
 \input{covers/inside.tex}       % 碩士論文的書名頁
 \input{covers/inside_phd.tex}   % 博士論文版的書名頁 博士論文版的書名頁
 
 \restoregeometry
-% =========================================================================
+% =============================================================
 
 % 書名頁起至最後一頁皆須加入浮水印
 \AddToShipoutPicture{
@@ -57,36 +57,45 @@
     }
 }
 
-%審定書
-%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{approval_ch.pdf}
-%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{approval_en.pdf}
+% =============================================================
 
-%授權書
+% 口試結束後, 會有一些文件(3&5)需要口委們簽名
+% 這邊的東西是最後上傳到圖書館要加入的東西
+% (我當年畢業不需要4 XD)
+
+% 3. 論文電子檔著作權授權書: auth.pdf
 %\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{auth.pdf}
 
+% 4. 博士論文指導教授推薦書(碩士論文免附): phd_recommend.pdf
+%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{phd_recommend.pdf}
+
+% 5. 學位論文審定同意書(審定書): approval_ch.pdf
+%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{approval_ch.pdf}
 
 \frontmatter
 \pagenumbering{roman}
 {\fontfamily{ptm}\selectfont
 
 
-% =========================================================================
-% 中英文摘要 chinese and english abstract
+% =============================================================
+% 6. 致謝 Acknowledgement
+\addcontentsline{toc}{chapter}{誌\,\,\,\,\,謝} \input{Sections/Acknowledgement}\newpage
+
+
+% 7&8. 中英文摘要 chinese and english abstract
 \addcontentsline{toc}{chapter}{摘\,\,\,\,\,要} \input{Sections/Abstract_chinese} \newpage
 \addcontentsline{toc}{chapter}{Abstract} \input{Sections/Abstract} \newpage
 
-% 致謝 Acknowledgement
-\addcontentsline{toc}{chapter}{誌\,\,\,\,\,謝} \input{Sections/Acknowledgement}\newpage
-% =========================================================================
+% =============================================================
 
-% 製作目錄
+% 9. 目錄
 \addcontentsline{toc}{chapter}{Contents} \tableofcontents \newpage
 
-% 圖片目錄
+% 10. 圖片目錄
 \renewcommand{\numberline}[1]{Figure~#1\hspace*{1em}}
 \addcontentsline{toc}{chapter}{List of Figures} \listoffigures \newpage
 
-% 表格目錄, 有需要再打開
+% 11. 表格目錄, 有需要再打開
 % \renewcommand{\numberline}[1]{Table~#1\hspace*{1em}}
 % \addcontentsline{toc}{chapter}{List of Tables} \listoftables \newpage
 
@@ -94,7 +103,7 @@
 \pagenumbering{arabic} % enabling page numbering
 
 % =========================================================================
-% 論文的內文, 可以每個章節一個.tex檔案 (put your statements in the following)
+% 12. 論文正文, 可以每個章節一個.tex檔案 (put your statements in the following)
 \input{Sections/1.Introduction} \newpage
 \input{Sections/2.Relatedwork} \newpage
 \input{Sections/3.Architecture} \newpage
