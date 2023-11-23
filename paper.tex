@@ -6,7 +6,7 @@
 
 % 為了看起來比較協調, 目錄的語言改為全部英文 or 全部中文, 中英混雜有點奇怪.
 % 要使用中文目錄可把下面的註解拿掉, 當\toggletrue{toc-use-cn}啟用才會使用中文目錄, 預設使用英文目錄
-%\toggletrue{toc-use-cn}
+\toggletrue{toc-use-cn}
 
 
 
@@ -73,12 +73,13 @@
 % 5. 學位論文審定同意書(審定書): approval_ch.pdf
 %\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{approval_ch.pdf}
 
+% =============================================================
+% 目錄設定
+
 \frontmatter
 \pagenumbering{roman}
 {\fontfamily{ptm}\selectfont
 
-
-% =============================================================
 \iftoggle{toc-use-cn}
 { % true . 使用中文
 \renewcommand{\contentsname}{目錄} % true. 使用中文目錄
