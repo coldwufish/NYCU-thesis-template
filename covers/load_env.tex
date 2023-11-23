@@ -108,3 +108,9 @@ Style2*=\tiny$\blacksquare$ ,Style3*=$\circ$ ,Style4*=-- )
 \put(\LenToUnit{.42\paperwidth},\LenToUnit{-.5\paperheight}){#1}}%
 }
 % 浮水印套件 + 語法 end
+
+\usepackage[center] {titlesec} %chapter1修改为第1章
+\usepackage{zhnumber} % 轉換中文數字
+\usepackage{titletoc, CJKnumb}
+\usepackage{etoolbox}
+\newtoggle{toc-use-cn}

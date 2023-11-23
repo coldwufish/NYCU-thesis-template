@@ -1,11 +1,13 @@
-% overleaf的免費帳號不能邀請其他人共同編輯, 下面是我的推薦連結
-% https://www.overleaf.com?r=cc96d36b&rm=d&rs=b
-% 如果可以的話, 幫我增加一下點數 XD
-
 % 如果需要更新, 請email至: wufish@gmail.com
+% 也可以到github留言: https://github.com/coldwufish/NYCU-thesis-template
 
 % 載入會用到的套件, 通常不需要修改這邊的資料
 \input{covers/load_env.tex} 
+
+% 為了看起來比較協調, 目錄的語言改為全部英文 or 全部中文, 中英混雜有點奇怪.
+% 要使用中文目錄可把下面的註解拿掉, 當\toggletrue{toc-use-cn}啟用才會使用中文目錄, 預設使用英文目錄
+%\toggletrue{toc-use-cn}
+
 
 
 % --------------------------------------------
@@ -22,7 +24,6 @@
 \newcommand{\advisorEnNameA}{Tseng, OOOO} % 封面用
 \newcommand{\ThesisDate}{August 2022} % 碩論的日期
 \newcommand{\ThesisDateTW}{中華民國~ 一一一年八月}
-
 % --------------------------------------------
 
 
@@ -78,32 +79,76 @@
 
 
 % =============================================================
+\iftoggle{toc-use-cn}
+{ % true . 使用中文
+\renewcommand{\contentsname}{目錄} % true. 使用中文目錄
+
 % 6. 致謝 Acknowledgement
 \addcontentsline{toc}{chapter}{誌\,\,\,\,\,謝} \input{Sections/Acknowledgement}\newpage
 
+% 7 中文摘要 chinese abstract
+\addcontentsline{toc}{chapter}{中文摘要} \input{Sections/Abstract_chinese} \newpage
 
-% 7&8. 中英文摘要 chinese and english abstract
-\addcontentsline{toc}{chapter}{摘\,\,\,\,\,要} \input{Sections/Abstract_chinese} \newpage
-\addcontentsline{toc}{chapter}{Abstract} \input{Sections/Abstract} \newpage
+% 8. 英文摘要
+\addcontentsline{toc}{chapter}{英文摘要} \input{Sections/Abstract} \newpage
 
-% =============================================================
+% 9. 目錄 中文版
+\addcontentsline{toc}{chapter}{目錄\vspace{1em}} \tableofcontents \titlecontents{chapter}[0em]{}{第\CJKnumber{\thecontentslabel}章~~}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
 
-% 9. 目錄
+\titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+
+\titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+
+\newpage
+
+% 10. 圖片目錄 中文版
+\renewcommand{\numberline}[1]{圖~#1\hspace*{1em}}
+\addcontentsline{toc}{chapter}{圖目錄\vspace{0em}} \listoffigures \newpage
+
+% 11. 表格目錄 中文版, 有需要再打開
+% \renewcommand{\numberline}[1]{表~#1\hspace*{1em}}
+% \addcontentsline{toc}{chapter}{表目錄\vspace{0em}} \listoftables \newpage
+
+% 把Chapter改成 第X章
+\titleformat{\chapter}{\raggedright\Huge\bfseries}{第\,\zhnum{chapter}\,章}{1em}{}
+} % true end. 中文目錄設定結束
+{ % false. 使用英文目錄
+\renewcommand{\contentsname}{Contents} % 使用英文目錄
+
+% 6. 致謝 Acknowledgement
+\addcontentsline{toc}{chapter}{Acknowledgement} \input{Sections/Acknowledgement}\newpage
+
+% 7 中文摘要 chinese abstract
+\addcontentsline{toc}{chapter}{Chinese Abstract} \input{Sections/Abstract_chinese} \newpage
+
+% 8. english abstract
+\addcontentsline{toc}{chapter}{English Abstract} \input{Sections/Abstract} \newpage
+
+% 9. 目錄 English version
 \addcontentsline{toc}{chapter}{Contents} \tableofcontents \newpage
+\titlecontents{chapter}[0pt]
+{\addvspace{0.5\baselineskip} \bfseries}
+{\thecontentslabel \hspace{1em}}
+{}
+{\titlerule*[0.5pc]{.}\contentspage}
 
-% 10. 圖片目錄
+% 10. 圖片目錄 English version
 \renewcommand{\numberline}[1]{Figure~#1\hspace*{1em}}
 \addcontentsline{toc}{chapter}{List of Figures} \listoffigures \newpage
 
-% 11. 表格目錄, 有需要再打開
-% \renewcommand{\numberline}[1]{Table~#1\hspace*{1em}}
-% \addcontentsline{toc}{chapter}{List of Tables} \listoftables \newpage
+% 11. 表格目錄 English version, 有需要再打開
+%\renewcommand{\numberline}[1]{Table~#1\hspace*{1em}}
+%\addcontentsline{toc}{chapter}{List of Tables} \listoftables \newpage
+} % false end. 使用英文
+
 
 \mainmatter
 \pagenumbering{arabic} % enabling page numbering
 
+
 % =========================================================================
 % 12. 論文正文, 可以每個章節一個.tex檔案 (put your statements in the following)
+
 \input{Sections/1.Introduction} \newpage
 \input{Sections/2.Relatedwork} \newpage
 \input{Sections/3.Architecture} \newpage
@@ -118,7 +163,11 @@
 % ref的寫法可以參考這邊: https://hackmd.io/Bc1-FIIISka6DW15sPprAw
 \ClearShipoutPicture % 把ref的浮水印關掉
 
-\addcontentsline{toc}{chapter}{Bibliography}
+
+\iftoggle{toc-use-cn}
+{\addcontentsline{toc}{chapter}{參考文獻}} % true. 使用中文
+{\addcontentsline{toc}{chapter}{Bibliography}} % false. 使用英文
+
 \bibliographystyle{IEEEtran}
 \bibliography{ref}
 }
