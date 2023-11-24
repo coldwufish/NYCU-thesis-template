@@ -81,8 +81,16 @@
 {\fontfamily{ptm}\selectfont
 
 \iftoggle{toc-use-cn}
-{ % true . 使用中文
-\renewcommand{\contentsname}{目錄} % true. 使用中文目錄
+{ % true section. 使用中文
+\renewcommand{\contentsname}{目錄} % 使用中文目錄
+
+% 下面這些是要在目錄上加入...的符號與頁碼
+\titlecontents{chapter}{}{}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+\titlecontents{chapter}[0em]{}{第\CJKnumber{\thecontentslabel}章~~}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
+
+\titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+
+\titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 
 % 6. 致謝 Acknowledgement
 \addcontentsline{toc}{chapter}{誌\,\,\,\,\,謝} \input{Sections/Acknowledgement}\newpage
@@ -94,11 +102,8 @@
 \addcontentsline{toc}{chapter}{英文摘要} \input{Sections/Abstract} \newpage
 
 % 9. 目錄 中文版
-\addcontentsline{toc}{chapter}{目錄\vspace{1em}} \tableofcontents \titlecontents{chapter}[0em]{}{第\CJKnumber{\thecontentslabel}章~~}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
+\addcontentsline{toc}{chapter}{目錄} \tableofcontents 
 
-\titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
-
-\titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 
 \newpage
 
@@ -111,10 +116,24 @@
 % \addcontentsline{toc}{chapter}{表目錄\vspace{0em}} \listoftables \newpage
 
 % 把Chapter改成 第X章
-\titleformat{\chapter}{\raggedright\Huge\bfseries}{第\,\zhnum{chapter}\,章}{1em}{}
+\titleformat{\chapter}{\normalfont\huge\bfseries}{第\zhnum{chapter}章、}{}{}
+%\titleformat{\chapter}{\normalfont\huge\bfseries}{Chapter \thechapter.}{1em}{}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
 } % true end. 中文目錄設定結束
-{ % false. 使用英文目錄
+% ==========================================
+% ==========================================
+{ % false section. 使用英文目錄
 \renewcommand{\contentsname}{Contents} % 使用英文目錄
+
+% 下面這些是要在目錄上加入...的符號與頁碼
+\titlecontents{chapter}{}{}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+\titlecontents{chapter}[0em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
+
+\titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+
+\titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+
 
 % 6. 致謝 Acknowledgement
 \addcontentsline{toc}{chapter}{Acknowledgement} \input{Sections/Acknowledgement}\newpage
@@ -127,19 +146,26 @@
 
 % 9. 目錄 English version
 \addcontentsline{toc}{chapter}{Contents} \tableofcontents \newpage
-\titlecontents{chapter}[0pt]
-{\addvspace{0.5\baselineskip} \bfseries}
-{\thecontentslabel \hspace{1em}}
-{}
-{\titlerule*[0.5pc]{.}\contentspage}
+%\titlecontents{chapter}[0pt]
+%{\addvspace{0.5\baselineskip} \bfseries}
+%{\thecontentslabel \hspace{1em}}
+%{}
+%{\titlerule*[0.5pc]{.}\contentspage}
 
 % 10. 圖片目錄 English version
 \renewcommand{\numberline}[1]{Figure~#1\hspace*{1em}}
-\addcontentsline{toc}{chapter}{List of Figures} \listoffigures \newpage
+%\addcontentsline{toc}{chapter}{\protect\centering\itshape{List of Figures}} \listoffigures \newpage
 
 % 11. 表格目錄 English version, 有需要再打開
 %\renewcommand{\numberline}[1]{Table~#1\hspace*{1em}}
 %\addcontentsline{toc}{chapter}{List of Tables} \listoftables \newpage
+
+
+% 調整內文的chapter, section, subection的顯示方式, 改成靠左對齊+沒有換行
+\titleformat{\chapter}{\normalfont\huge\bfseries}{Chapter \thechapter.}{1em}{}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
 } % false end. 使用英文
 
 
