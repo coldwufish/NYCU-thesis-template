@@ -6,7 +6,7 @@
 
 % 為了看起來比較協調, 目錄的語言改為全部英文 or 全部中文, 中英混雜有點奇怪.
 % 要使用中文目錄可把下面的註解拿掉, 當\toggletrue{toc-use-cn}啟用才會使用中文目錄, 預設使用英文目錄
-\toggletrue{toc-use-cn}
+%\toggletrue{toc-use-cn}
 
 
 
@@ -40,6 +40,8 @@
 \input{covers/front_phd.tex}    % 博士論文版的封面 博士論文版的封面
 
 % 2. 第二頁的書名頁, 記得修改系所, 日期
+% 目前的浮水印剛好可以把校名&相關資訊包在裡面, 如果論文名稱太長的話, 換行之後的外觀就沒那麼漂亮XD 有需要的話可以自行調成inside裡面的字體大小. 
+% 目前是\LARGE, 可以再小一點: \Large, 再小一點: \large
 \input{covers/inside.tex}       % 碩士論文的書名頁
 \input{covers/inside_phd.tex}   % 博士論文版的書名頁 博士論文版的書名頁
 
@@ -85,11 +87,8 @@
 \renewcommand{\contentsname}{目錄} % 使用中文目錄
 
 % 下面這些是要在目錄上加入...的符號與頁碼
-\titlecontents{chapter}{}{}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
-\titlecontents{chapter}[0em]{}{第\CJKnumber{\thecontentslabel}章~~}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
-
+\titlecontents{chapter}[0em]{}{第\CJKnumber{\thecontentslabel}章 \hspace{0.5em}}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
 \titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
-
 \titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 
 % 6. 致謝 Acknowledgement
@@ -102,22 +101,22 @@
 \addcontentsline{toc}{chapter}{英文摘要} \input{Sections/Abstract} \newpage
 
 % 9. 目錄 中文版
-\addcontentsline{toc}{chapter}{目錄} \tableofcontents 
-
-
-\newpage
+\addcontentsline{toc}{chapter}{目錄} \tableofcontents \newpage
 
 % 10. 圖片目錄 中文版
+\renewcommand{\figurename}{圖} % 把caption的Figure改成"圖"
+\renewcommand{\listfigurename}{圖目錄}
 \renewcommand{\numberline}[1]{圖~#1\hspace*{1em}}
 \addcontentsline{toc}{chapter}{圖目錄\vspace{0em}} \listoffigures \newpage
 
 % 11. 表格目錄 中文版, 有需要再打開
-% \renewcommand{\numberline}[1]{表~#1\hspace*{1em}}
-% \addcontentsline{toc}{chapter}{表目錄\vspace{0em}} \listoftables \newpage
+\renewcommand{\tablename}{表} % 把caption的Table改成"表"
+\renewcommand{\listtablename}{表目錄}
+\renewcommand{\numberline}[1]{表~#1\hspace*{1em}}
+\addcontentsline{toc}{chapter}{表目錄\vspace{0em}} \listoftables \newpage
 
 % 把Chapter改成 第X章
-\titleformat{\chapter}{\normalfont\huge\bfseries}{第\zhnum{chapter}章、}{}{}
-%\titleformat{\chapter}{\normalfont\huge\bfseries}{Chapter \thechapter.}{1em}{}
+\titleformat{\chapter}{\normalfont\huge\bfseries}{第\zhnum{chapter}章、}{0em}{}
 \titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
 } % true end. 中文目錄設定結束
@@ -126,14 +125,11 @@
 { % false section. 使用英文目錄
 \renewcommand{\contentsname}{Contents} % 使用英文目錄
 
+
 % 下面這些是要在目錄上加入...的符號與頁碼
-\titlecontents{chapter}{}{}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 \titlecontents{chapter}[0em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
-
 \titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
-
 \titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
-
 
 % 6. 致謝 Acknowledgement
 \addcontentsline{toc}{chapter}{Acknowledgement} \input{Sections/Acknowledgement}\newpage
@@ -146,26 +142,19 @@
 
 % 9. 目錄 English version
 \addcontentsline{toc}{chapter}{Contents} \tableofcontents \newpage
-%\titlecontents{chapter}[0pt]
-%{\addvspace{0.5\baselineskip} \bfseries}
-%{\thecontentslabel \hspace{1em}}
-%{}
-%{\titlerule*[0.5pc]{.}\contentspage}
 
 % 10. 圖片目錄 English version
 \renewcommand{\numberline}[1]{Figure~#1\hspace*{1em}}
-%\addcontentsline{toc}{chapter}{\protect\centering\itshape{List of Figures}} \listoffigures \newpage
+\addcontentsline{toc}{chapter}{List of Figures} \listoffigures \newpage
 
 % 11. 表格目錄 English version, 有需要再打開
-%\renewcommand{\numberline}[1]{Table~#1\hspace*{1em}}
-%\addcontentsline{toc}{chapter}{List of Tables} \listoftables \newpage
-
+\renewcommand{\numberline}[1]{Table~#1\hspace*{1em}}
+\addcontentsline{toc}{chapter}{List of Tables} \listoftables \newpage
 
 % 調整內文的chapter, section, subection的顯示方式, 改成靠左對齊+沒有換行
 \titleformat{\chapter}{\normalfont\huge\bfseries}{Chapter \thechapter.}{1em}{}
 \titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
-
 } % false end. 使用英文
 
 
@@ -190,10 +179,12 @@
 % ref的寫法可以參考這邊: https://hackmd.io/Bc1-FIIISka6DW15sPprAw
 \ClearShipoutPicture % 把ref的浮水印關掉
 
-
-\iftoggle{toc-use-cn}
-{\addcontentsline{toc}{chapter}{參考文獻}} % true. 使用中文
-{\addcontentsline{toc}{chapter}{Bibliography}} % false. 使用英文
+\iftoggle{toc-use-cn} % 使用中文
+{\addcontentsline{toc}{chapter}{參考文獻}
+\renewcommand{\bibname}{參考文獻} } 
+{\addcontentsline{toc}{chapter}{References}
+\renewcommand{\bibname}{References}
+} 
 
 \bibliographystyle{IEEEtran}
 \bibliography{ref}
