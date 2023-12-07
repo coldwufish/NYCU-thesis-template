@@ -8,42 +8,100 @@
 % 要使用中文目錄可把下面的註解拿掉, 當\toggletrue{toc-use-cn}啟用才會使用中文目錄, 預設使用英文目錄
 %\toggletrue{toc-use-cn}
 
-
-
 % --------------------------------------------
 % 在這邊寫自己的資料
+
+% 論文名稱
 \newcommand{\chineseTitle}{中文論文名字}
 \newcommand{\englishTitle}{English Title}
+
+% 自己的名字
 \newcommand{\studentCnName}{學生名字}
 \newcommand{\studentEnName}{XXXX Wu} % 書名頁
 \newcommand{\studentEnNameA}{Wu, XXXX} % 封面用
 % 英文名字有兩種寫法, 一個是姓在後, 一個是放前面. 
 
-\newcommand{\advisorCnName}{指導教授}
-\newcommand{\advisorEnName}{OOOO Tseng} % 書名頁
-\newcommand{\advisorEnNameA}{Tseng, OOOO} % 封面用
-\newcommand{\ThesisDate}{August 2022} % 碩論的日期
-\newcommand{\ThesisDateTW}{中華民國~ 一一一年八月}
+% 教授的名字
+\newcommand{\advisorCnName}{指導教授名字}
+\newcommand{\advisorEnName}{OOOO Tseng}     % 書名頁
+\newcommand{\advisorEnNamex}{Tseng, OOOO}   % 封面用
+
+% 共同指導教授的名字, 若有再填寫即可
+%\newcommand{\advisorCnNameB}{共同指導教授名字}
+%\newcommand{\advisorEnNameB}{OOO Lin}     % 書名頁
+%\newcommand{\advisorEnNameBx}{Lin, OOO}   % 封面用
+
+
+% 論文的日期
+\newcommand{\ThesisDate}{August 2022}           
+\newcommand{\ThesisDateTW}{中華民國~ 一一一年八月} 
+
+% 博士班就把下方註解拿掉吧!!
+%\toggletrue{iamphd}
+
+% [書名頁] 各學院、系所、學位中文、英文名稱: 
+\newcommand{\CollegeCnName}{資訊學院} % 這個其實沒用到, 不過為了一致還是放進來
+\newcommand{\CollegeEnName}{College of Computer Science}
+\newcommand{\DepartInstitCnName}{網路工程研究所} % 系所名稱, 請看下方[說明1]
+\newcommand{\DepartInstitEnName}{Institute of Network Engineering}
+\newcommand{\DegreeName}{Master of Science} % 學位名稱, 常見的是Master of Science, 不過這個有很多寫法, 要記得查學校的資料.
+\newcommand{\ResearchTopic}{Computer Science} % 研究領域, 請看下方[說明2]
+
+% [說明1]
+% 這邊需要填寫 XX系 or OO所 的名稱
+% 如果你的單位是系所合一, 就用 Department. 如: 土木系碩士班請用 Department
+% 只有所的話, 就用Institute. 如: 電信所請用Institute
+
+
+% [說明2]
+% 書名頁的最後會有 in OOOO 的內容. 這個目前找不到通用性的寫法. 
+% 大家就自行找前人的畢業論文, 看同系所的人是怎麼寫, 就跟他們寫一樣的吧.
+% 不過有些系所不需要寫這個東西, ex: 教育所. 不需要的話就把\ResearchTopic整句刪掉
+
+% 中英文名稱請看學校網站: https://aa.nycu.edu.tw/reg/統計資訊/
 % --------------------------------------------
+
+
+% --------------------------------------------
+% --------------------------------------------
+% 填寫範例-1
+% 博士班範例
+%\toggletrue{iamphd}
+%\newcommand{\CollegeCnName}{電機學院} 
+%\newcommand{\CollegeEnName}{College of Electrical and Computer Engineering}
+%\newcommand{\InstituteCnName}{電信工程研究所}
+%\newcommand{\InstituteEnName}{Institute of Communications Engineering}
+%\newcommand{\DegreeName}{Doctor of Philosophy} 
+%\newcommand{\ResearchTopic}{Electronics and Electrical Engineering}
+
+% 碩士班範例
+%\newcommand{\CollegeCnName}{資訊學院} 
+%\newcommand{\CollegeEnName}{College of Computer Science}
+%\newcommand{\InstituteCnName}{網路工程研究所}
+%\newcommand{\InstituteEnName}{Institute of Network Engineering}
+%\newcommand{\DegreeName}{Master of Science}
+%\newcommand{\ResearchTopic}{Computer Science} 
+% --------------------------------------------
+% --------------------------------------------
+
 
 
 \begin{document}
 \begin{CJK*}{UTF8}{bkai}
-
 
 % =============================================================
 % 封面的設定, 像是日期之類的 settings for cover 
 \newgeometry{top=3cm,bottom=3cm,left=3cm,right=3cm}
 
 % 1. 第一頁的封面, 記得修改系所
-\input{covers/front.tex}        % 碩士論文的封面
-\input{covers/front_phd.tex}    % 博士論文版的封面 博士論文版的封面
+\input{covers/front_var.tex}        % 論文的封面
 
 % 2. 第二頁的書名頁, 記得修改系所, 日期
-% 目前的浮水印剛好可以把校名&相關資訊包在裡面, 如果論文名稱太長的話, 換行之後的外觀就沒那麼漂亮XD 有需要的話可以自行調成inside裡面的字體大小. 
+% 目前的浮水印剛好可以把校名&相關資訊包在裡面
+% 如果論文名稱太長的話, 換行之後的外觀就沒那麼漂亮XD 有需要的話可以自行調成inside裡面的字體大小. 
 % 目前是\LARGE, 可以再小一點: \Large, 再小一點: \large
-\input{covers/inside.tex}       % 碩士論文的書名頁
-\input{covers/inside_phd.tex}   % 博士論文版的書名頁 博士論文版的書名頁
+\input{covers/inside_var.tex}       % 論文的書名頁
+
 
 \restoregeometry
 % =============================================================
@@ -92,13 +150,13 @@
 \titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 
 % 6. 致謝 Acknowledgement
-\addcontentsline{toc}{chapter}{誌\,\,\,\,\,謝} \input{Sections/Acknowledgement}\newpage
+\addcontentsline{toc}{chapter}{誌\,\,\,\,\,謝} \input{Sections/0.1.Acknowledgement}\newpage
 
 % 7 中文摘要 chinese abstract
-\addcontentsline{toc}{chapter}{中文摘要} \input{Sections/Abstract_chinese} \newpage
+\addcontentsline{toc}{chapter}{中文摘要} \input{Sections/0.2.Abstract_chinese} \newpage
 
 % 8. 英文摘要
-\addcontentsline{toc}{chapter}{英文摘要} \input{Sections/Abstract} \newpage
+\addcontentsline{toc}{chapter}{英文摘要} \input{Sections/0.3.Abstract} \newpage
 
 % 9. 目錄 中文版
 \addcontentsline{toc}{chapter}{目錄} \tableofcontents \newpage
@@ -132,13 +190,13 @@
 \titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 
 % 6. 致謝 Acknowledgement
-\addcontentsline{toc}{chapter}{Acknowledgement} \input{Sections/Acknowledgement}\newpage
+\addcontentsline{toc}{chapter}{Acknowledgement} \input{Sections/0.1.Acknowledgement}\newpage
 
 % 7 中文摘要 chinese abstract
-\addcontentsline{toc}{chapter}{Chinese Abstract} \input{Sections/Abstract_chinese} \newpage
+\addcontentsline{toc}{chapter}{Chinese Abstract} \input{Sections/0.2.Abstract_chinese} \newpage
 
 % 8. english abstract
-\addcontentsline{toc}{chapter}{English Abstract} \input{Sections/Abstract} \newpage
+\addcontentsline{toc}{chapter}{English Abstract} \input{Sections/0.3.Abstract} \newpage
 
 % 9. 目錄 English version
 \addcontentsline{toc}{chapter}{Contents} \tableofcontents \newpage
@@ -176,7 +234,6 @@
 
 % =========================================================================
 % 參考文獻的檔案 Reference file: ref.bib
-% ref的寫法可以參考這邊: https://hackmd.io/Bc1-FIIISka6DW15sPprAw
 \ClearShipoutPicture % 把ref的浮水印關掉
 
 \iftoggle{toc-use-cn} % 使用中文
@@ -190,6 +247,13 @@
 \bibliography{ref}
 }
 % =========================================================================
+
+% NYCU參考資料:
+% 臺灣博碩士論文知識加值系統 https://ndltd.ncl.edu.tw/
+% 學位論文編寫事項 https://www.lib.nycu.edu.tw/custom_label?menu=64&lid=6
+% 各學院、系所學位中英文名稱 https://aa.nycu.edu.tw/reg/統計資訊/
+% 圖書館FB: https://www.facebook.com/NYCULIB
+
 
 
 \end{CJK*}

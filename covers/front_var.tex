@@ -1,0 +1,36 @@
+\begin{titlepage}
+
+  \begin{center}
+    \vspace{0.6cm}
+    \fontsize{18}{22}\selectfont{國立陽明交通大學} \\
+    \fontsize{18}{22}\selectfont{\DepartInstitCnName} \\  
+    \fontsize{18}{22}\selectfont{\iftoggle{iamphd}{博士論文}{碩士論文}}\\ 
+
+    \vspace{1cm}
+    
+\fontsize{14}{17}\selectfont{\DepartInstitEnName} \\
+\fontsize{16}{19}\selectfont{National Yang Ming Chiao Tung University} \\ 
+\fontsize{16}{19}\selectfont{\iftoggle{iamphd}{Doctoral Dissertation}{Master Thesis}} \\ 
+
+    \vspace{3.1cm}  
+    \fontsize{18}{22}\selectfont \chineseTitle \\
+    \fontsize{18}{22}\selectfont \englishTitle \\
+    \vspace{3.1cm}
+
+    \begin{tabular}{@{\hspace{1em}} r l}
+    研\ \ 究\ \ 生： & {\studentCnName}  (\studentEnNameA)  \\
+    指導教授： & {\advisorCnName} (\advisorEnNamex)  \\
+    \ifdefined\advisorCnNameB % 如果有共同指導教授
+      & {\advisorCnNameB} (\advisorEnNameBx)
+    \fi
+   
+    \end{tabular}
+    
+    \vspace{\fill}
+    
+    \fontsize{18}{22}\selectfont \ThesisDateTW \\
+    \fontsize{18}{22}\selectfont \ThesisDate
+    
+  \end{center}
+
+\end{titlepage}

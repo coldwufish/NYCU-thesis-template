@@ -7,13 +7,15 @@
     
     \begin{singlespace}    
 
-    	學生      ：\studentCnName{}  \hspace{2.5cm}  指導教授  ：\advisorCnName \hspace{0.1cm} 博士 \\
-         [0.5cm]
-
+    學生：\studentCnName  \hspace{2.5cm}  指導教授：\advisorCnName \hspace{0.1cm} 博士 \\
+    \ifdefined\advisorCnNameB % 如果有共同指導教授
+    \hspace{9.6cm}  \advisorCnNameB ~ 博士 \\
+    \fi
     \end{singlespace}
-    
 
-    國立陽明交通大學網路工程研究所碩士班 \\[0.5cm]
+    \vspace{0.5cm}
+
+    國立陽明交通大學\ \DepartInstitCnName\ \iftoggle{iamphd}{博士班}{碩士班} \\[0.5cm]
     \textbf{摘~~~~~~~~要} \\[0.5cm]
 
   \end{center}

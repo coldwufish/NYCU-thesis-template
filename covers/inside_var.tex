@@ -19,29 +19,35 @@
   
     \fontsize{14}{14}\selectfont{
     \begin{tabular}{r l c r l}
-    研\ \ 究\ \ 生： & \studentCnName & \hspace{1.5cm} & Student： & \studentEnName \\
-    指導教授： & \advisorCnName ~ 博士 & \hspace{1.5cm} & Advisor： & Dr. \advisorEnName \\
+    研\ \ 究\ \ 生： & \studentCnName & \hspace{0.6cm} & Student： & \studentEnName \\
+    指導教授： & \advisorCnName ~ 博士 & \hspace{0.6cm} & Advisor： & Dr. \advisorEnName \\
+    \ifdefined\advisorCnNameB % 如果有共同指導教授
+      & \advisorCnNameB ~ 博士 & & & Dr. \advisorEnNameB
+    \fi
     \end{tabular}
     }
     
     \vspace{1.5cm}
 
-    \fontsize{14}{17}\selectfont{國立陽明交通大學} \\
-    \fontsize{14}{17}\selectfont{網路工程研究所} \\  
-    \fontsize{14}{17}\selectfont{博士論文}\\     
-    
+    \fontsize{14}{17}\selectfont{國立陽明交通大學} ~\\
+    \fontsize{14}{17}\selectfont{\DepartInstitCnName} ~\\  
+    \fontsize{14}{17}\selectfont{\iftoggle{iamphd}{博士論文}{碩士論文}} ~\\     
+
+
+
     \vspace{2cm}
 
     \fontsize{14}{14}\selectfont{
-    A Dissertation \\
-    Submitted to Institute of Computer Science and Engineering \\
-    College of Computer Science \\
+    A \iftoggle{iamphd}{Dissertation}{Thesis} ~\\
+    Submitted to \DepartInstitEnName \\
+    \CollegeEnName \\
     National Yang Ming Chiao Tung University \\
     in partial Fulfillment of the Requirements \\
-	for the Degree of \\
-    Doctor of Philosoph \\
-	in  \\
-	Computer Science \\
+    for the Degree of \\
+    \DegreeName \\
+    \ifdefined\ResearchTopic
+      in \\ \ResearchTopic
+    \fi
     }
     
     \vspace{\fill}
