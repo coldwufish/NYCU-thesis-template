@@ -12,7 +12,7 @@ NYCU (National Yang Ming Chiao Tung University) thesis template. Some graduate s
 * 臺灣博碩士論文知識加值系統 https://ndltd.ncl.edu.tw/
   * 可用來查詢前人的論文, 看之前的畢業生是怎麼寫
 * 圖書館FB: https://www.facebook.com/NYCULIB
-* 
+
 ---
 這份latex有投稿到overleaf上作為template XD
 https://www.overleaf.com/latex/templates/nycu-thesis-template/jgcmcnchmbrc
@@ -102,6 +102,8 @@ https://www.overleaf.com/latex/templates/nycu-thesis-template/jgcmcnchmbrc
 
 #### 口試後才有的文件
 * 口試結束後, 會有一些文件(3&5)需要口委們簽名, 最後上傳到圖書館需要加這些東西. 論文初稿不需要. (我當年畢業不需要4 XD)
+* 圖書館有說: 授權書&審定書不用上傳，但要裝訂於紙本論文中。
+
 ```
 % 3. 論文電子檔著作權授權書: auth.pdf
 %\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{auth.pdf}
