@@ -35,6 +35,7 @@ NYCU (National Yang Ming Chiao Tung University) thesis template. Some graduate s
 * 支援碩士+博士論文格式
   * 開啟 \toggletrue{iamphd} 就變成博士論文
 * 畢業系所的資料改到主頁, 在main.tex裡填入系所的資訊, 就會連帶更新後面的封面、書名頁、中英文摘要
+* 自動調整書名頁的中英文標題大小, 維持在一列的範圍. 標題太長也不會被換行, 這樣浮水印可以包住學校資訊
 
 ### 主頁的說明(main.tex)
 * 使用英文目錄: 不需要改動
