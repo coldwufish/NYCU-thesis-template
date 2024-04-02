@@ -12,10 +12,47 @@
 
 \begin{titlepage}
   \begin{center}
-    \LARGE \chineseTitle \\
-    \LARGE \englishTitle \\
+
+    \begin{minipage}[t][3cm][t]{\textwidth}
   
-    \vspace{1.5cm}
+    % ======================================
+    % 使用變數決定標題文字大小, 這邊的寫法是用一列來呈現所有文字
+    % 如果覺得執行結果很奇怪, 可以把這一段註解掉, 改用另一種呈現方式
+    \ifthenelse{\chineseTitleLength > \chinesethresh}
+    {
+        \begin{adjustbox}{width=\linewidth}
+        \chineseTitle
+        \end{adjustbox}
+        \vspace{-0.4cm}
+    }
+    { % else
+        \centering \LARGE \chineseTitle 
+    }
+
+    \ifthenelse{\englishTitleLength > \englishthresh}
+    {
+        \begin{adjustbox}{width=\linewidth}
+        \englishTitle
+        \end{adjustbox}
+        \vspace{-0.4cm}
+    }
+    { % else
+        \centering \LARGE \englishTitle 
+    }
+
+    % 使用變數決定標題文字大小 end
+    % ======================================
+
+    % ======================================
+    % 另一種呈現方式
+    % 預設是\LARGE, 也可以小一點: \Large, 再小一點: \large
+    % \LARGE \chineseTitle \\
+    % \LARGE \englishTitle \\
+    % ======================================
+  
+    %\vspace{1.3cm}
+
+    \end{minipage}
   
     \fontsize{14}{14}\selectfont{
     \begin{tabular}{r l c r l}
@@ -27,7 +64,7 @@
     \end{tabular}
     }
     
-    \vspace{1.5cm}
+    \vspace{1.3cm}
 
     \fontsize{14}{17}\selectfont{國立陽明交通大學} ~\\
     \fontsize{14}{17}\selectfont{\DepartInstitCnName} ~\\  
@@ -35,7 +72,7 @@
 
 
 
-    \vspace{2cm}
+    \vspace{1.8cm}
 
     \fontsize{14}{14}\selectfont{
     A \iftoggle{iamphd}{Dissertation}{Thesis} ~\\

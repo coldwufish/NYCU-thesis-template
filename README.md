@@ -17,16 +17,17 @@ NYCU (National Yang Ming Chiao Tung University) thesis template. Some graduate s
 
 ---
 這份latex有投稿到overleaf上作為template XD
-https://www.overleaf.com/latex/templates/nycu-thesis-template/jgcmcnchmbrc
+* https://www.overleaf.com/latex/templates/nycu-thesis-template/jgcmcnchmbrc
 
 實驗室同學大多使用此樣板上傳論文到圖書館, 應該是沒太多問題(!?)
 
-如果是overleaf的新使用者 & 願意贊助的話, 可以用這個推薦連結: https://www.overleaf.com?r=cc96d36b&rm=d&rs=b (幫我增加一下點數 XD)
+如果是overleaf的新使用者 & 願意贊助的話, 可以用我的推薦連結: 
+* https://www.overleaf.com?r=cc96d36b&rm=d&rs=b (幫我增加點數 XD)
 
 ----
 ## 使用方式
 * 論文的主頁是 main.tex, 在這邊輸入個人資料 (自己名字, 指導教授, 論文名稱...等), 然後在此頁案按compile就會生成PDF了
-* 論文章節是拆成多個檔案, 可留意main.tex裡面提到的資訊
+* 論文章節是拆成多個檔案, 放在Section資料夾裡, 可留意main.tex裡面提到的資訊
 
 ## 本樣板特色 (自己說的XD)
 * 支援中文+英文版的目錄格式
@@ -156,3 +157,4 @@ https://www.overleaf.com/latex/templates/nycu-thesis-template/jgcmcnchmbrc
 * 2023.11: 調整一下排版, 看起來比較美觀(!?)
 * 2023.11: 再多補充一些說明還有使用心得(?) 剛剛發現中文的Figure與Table忘了改成中文, 也一併修正.
 * 2023.12: 大幅度更新(!?) 直接整合碩博士的寫法, 還有把系所的資訊拉到主頁當變數, 也考慮到有共同指導教授的情境.
+* 2024.04: 調整第二頁的書名頁語法, 偵測中英文標題的文字長度, 讓它限制在一列的範圍. 並且加上minipage控制高度, 這樣高度就不會發生變化 (從研究生那邊開始 XD)
