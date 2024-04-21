@@ -9,8 +9,9 @@ NYCU (National Yang Ming Chiao Tung University) thesis template. Some graduate s
 ---
 ## 圖書館的資訊
 * 學位論文編寫事項 https://www.lib.nycu.edu.tw/custom_label?menu=64&lid=6
+* 教務處的學位論文相關表件 https://aa.nycu.edu.tw/aa/ch/app/data/list?module=nycu0038&id=2468
 * 書名頁學位名稱英文，請依照註冊組提供各學院、系所學位中英文名稱.
-  * https://aa.nycu.edu.tw/reg/%E7%B5%B1%E8%A8%88%E8%B3%87%E8%A8%8A
+  * 學位授予名稱 https://aa.nycu.edu.tw/aa/ch/app/statisticalmap/list?module=statisticalmap&id=4358
 * 臺灣博碩士論文知識加值系統 https://ndltd.ncl.edu.tw/
   * 可用來查詢前人的論文, 看之前的畢業生是怎麼寫
 * 圖書館FB: https://www.facebook.com/NYCULIB
@@ -159,3 +160,8 @@ NYCU (National Yang Ming Chiao Tung University) thesis template. Some graduate s
 * 2023.11: 再多補充一些說明還有使用心得(?) 剛剛發現中文的Figure與Table忘了改成中文, 也一併修正.
 * 2023.12: 大幅度更新(!?) 直接整合碩博士的寫法, 還有把系所的資訊拉到主頁當變數, 也考慮到有共同指導教授的情境.
 * 2024.04: 調整第二頁的書名頁語法, 偵測中英文標題的文字長度, 讓它限制在一列的範圍. 並且加上minipage控制高度, 這樣高度就不會發生變化 (從研究生那邊開始 XD)
+* 2024.04: 把目錄的語法弄到另一個檔案(toc_var.tex), 讓主頁看起來比較清爽(!?) 現在上傳圖書館還要附上新的資料:
+  * [113年2月19日後上傳圖書館博碩士論文系統者適用]
+  * 15. 學位論文發表形式確認書【詳附件 5】
+  * 16. 著作彙編之學位論文資訊及彙編學術著作之共同作者貢獻聲明書(非著作彙
+  * 可以去這個連結看15與16: https://aa.nycu.edu.tw/userfiles/aach/files/20240125111443441.pdf

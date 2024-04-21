@@ -40,6 +40,7 @@
 %\toggletrue{iamphd}
 
 % [書名頁] 各學院、系所、學位中文、英文名稱: 
+% 請參考 學位授予名稱 https://aa.nycu.edu.tw/aa/ch/app/statisticalmap/list?module=statisticalmap&id=4358
 \newcommand{\CollegeCnName}{資訊學院} % 這個其實沒用到, 不過為了一致還是放進來
 \newcommand{\CollegeEnName}{College of Computer Science}
 \newcommand{\DepartInstitCnName}{網路工程研究所} % 系所名稱, 請看下方[說明1]
@@ -59,7 +60,6 @@
 % 不過有些系所不需要寫這個東西, ex: 教育所. 
 % 不需要的話就把\ResearchTopic整句刪掉
 
-% 中英文名稱請看學校網站: https://aa.nycu.edu.tw/reg/統計資訊/
 % --------------------------------------------
 
 
@@ -129,103 +129,26 @@
 % 口試結束後, 會有一些文件(3&5)需要口委們簽名
 % 這邊的東西是最後上傳到圖書館要加入的東西
 % (我當年畢業不需要4 XD)
+% ps. 圖書館有說: 授權書&審定書不用上傳，但要裝訂於紙本論文中。
 
 % 3. 論文電子檔著作權授權書: auth.pdf
 %\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{auth.pdf}
 
-% 4. 博士論文指導教授推薦書(碩士論文免附): phd_recommend.pdf
+% 4. 博士論文指導教授推薦書(碩士論文免附) 由各所自定，可有可無。: phd_recommend.pdf
 %\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{phd_recommend.pdf}
 
 % 5. 學位論文審定同意書(審定書): approval_ch.pdf
 %\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{approval_ch.pdf}
 
-% ps. 圖書館有說: 授權書&審定書不用上傳，但要裝訂於紙本論文中。
-
-% ====================================================
-% 目錄設定
-
 \frontmatter
-\pagenumbering{roman}
+\pagenumbering{roman} % 小寫羅馬數字頁碼
 {\fontfamily{ptm}\selectfont
 
-\iftoggle{toc-use-cn}
-{ % true section. 使用中文
-\renewcommand{\contentsname}{目錄} % 使用中文目錄
-
-% 下面這些是要在目錄上加入...的符號與頁碼
-\titlecontents{chapter}[0em]{}{第\CJKnumber{\thecontentslabel}章 \hspace{0.5em}}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
-\titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
-\titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
-
-% 6. 致謝 Acknowledgement
-\addcontentsline{toc}{chapter}{誌\,\,\,\,\,謝} \input{Sections/0.1.Acknowledgement}\newpage
-
-% 7 中文摘要 chinese abstract
-\addcontentsline{toc}{chapter}{中文摘要} \input{Sections/0.2.Abstract_chinese} \newpage
-
-% 8. 英文摘要
-\addcontentsline{toc}{chapter}{英文摘要} \input{Sections/0.3.Abstract} \newpage
-
-% 9. 目錄 中文版
-\addcontentsline{toc}{chapter}{目錄} \tableofcontents \newpage
-
-% 10. 圖片目錄 中文版
-\renewcommand{\figurename}{圖} % 把caption的Figure改成"圖"
-\renewcommand{\listfigurename}{圖目錄}
-\renewcommand{\numberline}[1]{圖~#1\hspace*{1em}}
-\addcontentsline{toc}{chapter}{圖目錄\vspace{0em}} \listoffigures \newpage
-
-% 11. 表格目錄 中文版, 有需要再打開
-\renewcommand{\tablename}{表} % 把caption的Table改成"表"
-\renewcommand{\listtablename}{表目錄}
-\renewcommand{\numberline}[1]{表~#1\hspace*{1em}}
-\addcontentsline{toc}{chapter}{表目錄\vspace{0em}} \listoftables \newpage
-
-% 把Chapter改成 第X章
-\titleformat{\chapter}{\normalfont\huge\bfseries}{第\zhnum{chapter}章、}{0em}{}
-\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
-} % true end. 中文目錄設定結束
-% --------------------------------------------
-% --------------------------------------------
-{ % false section. 使用英文目錄
-\renewcommand{\contentsname}{Contents} % 使用英文目錄
-
-% 下面這些是要在目錄上加入...的符號與頁碼
-\titlecontents{chapter}[0em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
-\titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
-\titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
-
-% 6. 致謝 Acknowledgement
-\addcontentsline{toc}{chapter}{Acknowledgement} \input{Sections/0.1.Acknowledgement}\newpage
-
-% 7 中文摘要 chinese abstract
-\addcontentsline{toc}{chapter}{Chinese Abstract} \input{Sections/0.2.Abstract_chinese} \newpage
-
-% 8. english abstract
-\addcontentsline{toc}{chapter}{English Abstract} \input{Sections/0.3.Abstract} \newpage
-
-% 9. 目錄 English version
-\addcontentsline{toc}{chapter}{Contents} \tableofcontents \newpage
-
-% 10. 圖片目錄 English version
-\renewcommand{\numberline}[1]{Figure~#1\hspace*{1em}}
-\addcontentsline{toc}{chapter}{List of Figures} \listoffigures \newpage
-
-% 11. 表格目錄 English version, 有需要再打開
-\renewcommand{\numberline}[1]{Table~#1\hspace*{1em}}
-\addcontentsline{toc}{chapter}{List of Tables} \listoftables \newpage
-
-% 調整內文的chapter, section, subection的顯示方式, 改成靠左對齊+沒有換行
-\titleformat{\chapter}{\normalfont\huge\bfseries}{Chapter \thechapter.}{1em}{}
-\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
-} % false end. 使用英文
-
+% 中英文目錄設定放在covers/toc_var.tex 裡面, 主頁看起來比較清爽
+\input{covers/toc_var.tex}
 
 \mainmatter
-\pagenumbering{arabic} % enabling page numbering
-
+\pagenumbering{arabic} % 阿拉伯數字頁碼
 
 % ====================================================
 % 12. 論文正文, 可以每個章節一個.tex檔案
@@ -237,11 +160,10 @@
 \input{Sections/4.Methodology} \newpage
 \input{Sections/5.Evaluation} \newpage
 \input{Sections/6.Conclusion} \newpage
-% ====================================================
 
 
 % ====================================================
-% 參考文獻的檔案 Reference file: ref.bib
+% 13. 參考文獻 Reference (檔案名稱 ref.bib)
 \ClearShipoutPicture % 把ref的浮水印關掉
 
 \iftoggle{toc-use-cn} % 使用中文
@@ -254,15 +176,15 @@
 \bibliographystyle{IEEEtran}
 \bibliography{ref}
 }
-% ====================================================
-
-% NYCU參考資料:
-% 臺灣博碩士論文知識加值系統 https://ndltd.ncl.edu.tw/
-% 學位論文編寫事項 https://www.lib.nycu.edu.tw/custom_label?menu=64&lid=6
-% 各學院、系所學位中英文名稱 https://aa.nycu.edu.tw/reg/統計資訊/
-% 圖書館FB: https://www.facebook.com/NYCULIB
 
 
+% 14. 附錄 Appendix
+
+% =========================================
+% [113年2月19日後上傳圖書館博碩士論文系統者適用]
+% 15. 學位論文發表形式確認書【詳附件 5】
+% 16. 著作彙編之學位論文資訊及彙編學術著作之共同作者貢獻聲明書(非著作彙
+% 可以去這個連結看15與16: https://aa.nycu.edu.tw/userfiles/aach/files/20240125111443441.pdf
 
 \end{CJK*}
 \balance
