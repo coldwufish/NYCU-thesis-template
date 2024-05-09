@@ -1,58 +1,57 @@
-% 如果需要更新, 請email至: wufish@gmail.com
+% update date: 2024.05.09
+% 有問題or更新需求可email至: wufish@gmail.com
 % 也可以到github留言: https://github.com/coldwufish/NYCU-thesis-template
 
 % 載入會用到的套件, 通常不需要修改這邊的資料
 \input{covers/load_env.tex} 
 
-% 為了看起來比較協調, 目錄的語言改為全部英文 or 全部中文, 中英混雜有點奇怪.
-% 要使用中文目錄可把下面的註解拿掉, 當\toggletrue{toc-use-cn}啟用才會使用中文目錄, 預設使用英文目錄
+% 目錄的語言可以設定成全英文 or 全中文 (預設英文目錄)
+% 想使用中文目錄的話, 可把下面的註解拿掉
 %\toggletrue{toc-use-cn}
 
-% ====================================================
-% 在這邊寫自己的資料
+
+% #### 下面是自己的資料 ####
+
+% 博士班就把下方註解拿掉吧!!
+%\toggletrue{iamphd}
 
 % 論文名稱
-\newcommand{\chineseTitle}{中文論文名字}
+\newcommand{\chineseTitle}{論文名稱}
 \newcommand{\englishTitle}{English Title}
 
-% 自己的名字
+% 自己的名字 (英文名字有兩種寫法, 一個是姓在後, 一個是放前面還有逗號. )
 \newcommand{\studentCnName}{學生名字}
 \newcommand{\studentEnName}{XXXX Wu} % 書名頁
 \newcommand{\studentEnNameA}{Wu, XXXX} % 封面用
-% 英文名字有兩種寫法, 一個是姓在後, 一個是放前面. 
 
 % 教授的名字
 \newcommand{\advisorCnName}{指導教授名字}
 \newcommand{\advisorEnName}{OOOO Tseng}     % 書名頁
 \newcommand{\advisorEnNamex}{Tseng, OOOO}   % 封面用
 
-% 共同指導教授的名字, 若有再填寫即可
+% 共同指導教授的名字, 若有再填寫即可. 目前只支援兩位指導教授的欄位
 %\newcommand{\advisorCnNameB}{共同指導教授名字}
 %\newcommand{\advisorEnNameB}{OOO Lin}     % 書名頁
 %\newcommand{\advisorEnNameBx}{Lin, OOO}   % 封面用
-
 
 % 論文的日期
 \newcommand{\ThesisDate}{August 2022}           
 \newcommand{\ThesisDateTW}{中華民國~ 一一一年八月} 
 
-% 博士班就把下方註解拿掉吧!!
-%\toggletrue{iamphd}
-
-% [書名頁] 各學院、系所、學位中文、英文名稱: 
-% 請參考 學位授予名稱 https://aa.nycu.edu.tw/aa/ch/app/statisticalmap/list?module=statisticalmap&id=4358
-\newcommand{\CollegeCnName}{資訊學院} % 這個其實沒用到, 不過為了一致還是放進來
-\newcommand{\CollegeEnName}{College of Computer Science}
-\newcommand{\DepartInstitCnName}{網路工程研究所} % 系所名稱, 請看下方[說明1]
-\newcommand{\DepartInstitEnName}{Institute of Network Engineering}
-\newcommand{\DegreeName}{Master of Science} % 學位名稱, 常見的是Master of Science, 不過這個有很多寫法, 要記得查學校的資料.
+% [書名頁] 請參考 學位授予名稱 的寫法
+% 下面變數也改為跟表格一樣的名稱, 後綴的CN與EN表示中英文
+% https://aa.nycu.edu.tw/aa/ch/app/statisticalmap/list?module=statisticalmap&id=4358
+\newcommand{\NameofCollegeCN}{資訊學院} % 這個其實沒用到, 不過為了一致還是放進來
+\newcommand{\NameofCollegeEN}{College of Computer Science}
+\newcommand{\NameofDepartmentInstituteCN}{網路工程研究所} % 系所名稱, 請看下方[說明1]
+\newcommand{\NameofDepartmentInstituteEN}{Institute of Network Engineering}
+\newcommand{\NameofDegree}{Master of Science} % 學位名稱, 常見的是Master of Science, 不過這個有很多寫法, 要記得查學校的資料.
 \newcommand{\ResearchTopic}{Computer Science} % 研究領域, 請看下方[說明2]
 
 % [說明1]
 % 這邊需要填寫 XX系 or OO所 的名稱
 % 如果你的單位是系所合一, 就用 Department. 如: 土木系碩士班請用 Department
 % 只有所的話, 就用Institute. 如: 電信所請用Institute
-
 
 % [說明2]
 % 書名頁的最後會有 in OOOO 的內容. 這個目前找不到通用性的寫法. 
@@ -62,38 +61,6 @@
 
 % --------------------------------------------
 
-
-% --------------------------------------------
-% --------------------------------------------
-% 填寫範例-1
-% 博士班範例
-%\toggletrue{iamphd}
-%\newcommand{\CollegeCnName}{電機學院} 
-%\newcommand{\CollegeEnName}{College of Electrical and Computer Engineering}
-%\newcommand{\InstituteCnName}{電信工程研究所}
-%\newcommand{\InstituteEnName}{Institute of Communications Engineering}
-%\newcommand{\DegreeName}{Doctor of Philosophy} 
-%\newcommand{\ResearchTopic}{Electronics and Electrical Engineering}
-
-% 碩士班範例
-%\newcommand{\CollegeCnName}{資訊學院} 
-%\newcommand{\CollegeEnName}{College of Computer Science}
-%\newcommand{\InstituteCnName}{網路工程研究所}
-%\newcommand{\InstituteEnName}{Institute of Network Engineering}
-%\newcommand{\DegreeName}{Master of Science}
-%\newcommand{\ResearchTopic}{Computer Science} 
-% --------------------------------------------
-% --------------------------------------------
-
-
-% [計算長度的語法]
-% 如果使用LARGE語法, 中文標題大約20個字會換行, 英文標題是30個字會換行
-% 第二頁的書名頁就改成動態調整字體大小, 讓標題維持在一列的長度
-\StrLen{\chineseTitle}[\chineseTitleLength]
-\StrLen{\englishTitle}[\englishTitleLength]
-\def\chinesethresh{20}
-\def\englishthresh{30}
-% 這邊不用理它
 
 
 \begin{document}
@@ -142,10 +109,19 @@
 
 \frontmatter
 \pagenumbering{roman} % 小寫羅馬數字頁碼
+
 {\fontfamily{ptm}\selectfont
 
 % 中英文目錄設定放在covers/toc_var.tex 裡面, 主頁看起來比較清爽
 \input{covers/toc_var.tex}
+
+% 裡面包含了 6-11的項目, 如下 (表格的語法應該不太會調整)
+% 6. 致謝 Acknowledgement {Sections/0.1.Acknowledgement}
+% 7 中文摘要  {Sections/0.2.Abstract_chinese}
+% 8. 英文摘要 {Sections/0.3.Abstract}
+% 9. 目錄 中文版
+% 10. 圖片目錄 中文版
+% 11. 表格目錄 中文版
 
 \mainmatter
 \pagenumbering{arabic} % 阿拉伯數字頁碼
@@ -168,7 +144,7 @@
 
 \iftoggle{toc-use-cn} % 使用中文
 {\addcontentsline{toc}{chapter}{參考文獻}
-\renewcommand{\bibname}{參考文獻} } 
+\renewcommand{\bibname}{參考文獻}} 
 {\addcontentsline{toc}{chapter}{References}
 \renewcommand{\bibname}{References}
 } 
@@ -178,7 +154,7 @@
 }
 
 
-% 14. 附錄 Appendix
+% 14. 附錄 Appendix (需要再自己插入)
 
 % =========================================
 % [113年2月19日後上傳圖書館博碩士論文系統者適用]

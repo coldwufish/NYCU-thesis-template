@@ -14,44 +14,8 @@
   \begin{center}
 
     \begin{minipage}[t][3cm][t]{\textwidth}
-  
-    % ======================================
-    % 使用變數決定標題文字大小, 這邊的寫法是用一列來呈現所有文字
-    % 如果覺得執行結果很奇怪, 可以把這一段註解掉, 改用另一種呈現方式
-    \ifthenelse{\chineseTitleLength > \chinesethresh}
-    {
-        \begin{adjustbox}{width=0.95\linewidth}
-        \chineseTitle
-        \end{adjustbox}
-        \vspace{-0.4cm}
-    }
-    { % else
-        \centering \LARGE \chineseTitle 
-    }
-
-    \ifthenelse{\englishTitleLength > \englishthresh}
-    {
-        \begin{adjustbox}{width=0.96\linewidth}
-        \englishTitle
-        \end{adjustbox}
-        \vspace{-0.4cm}
-    }
-    { % else
-        \centering \LARGE \englishTitle 
-    }
-
-    % 使用變數決定標題文字大小 end
-    % ======================================
-
-    % ======================================
-    % 另一種呈現方式
-    % 預設是\LARGE, 也可以小一點: \Large, 再小一點: \large
-    % \LARGE \chineseTitle \\
-    % \LARGE \englishTitle \\
-    % ======================================
-  
-    %\vspace{1.3cm}
-
+        \centering \LARGE \chineseTitle \\
+        \centering \LARGE \englishTitle \\
     \end{minipage}
   
     \fontsize{14}{14}\selectfont{
@@ -67,7 +31,7 @@
     \vspace{1.3cm}
 
     \fontsize{14}{17}\selectfont{國立陽明交通大學} ~\\
-    \fontsize{14}{17}\selectfont{\DepartInstitCnName} ~\\  
+    \fontsize{14}{17}\selectfont{\NameofDepartmentInstituteCN} ~\\  
     \fontsize{14}{17}\selectfont{\iftoggle{iamphd}{博士論文}{碩士論文}} ~\\     
 
 
@@ -76,12 +40,12 @@
 
     \fontsize{14}{14}\selectfont{
     A \iftoggle{iamphd}{Dissertation}{Thesis} ~\\
-    Submitted to \DepartInstitEnName \\
-    \CollegeEnName \\
+    Submitted to \NameofDepartmentInstituteEN \\
+    \NameofCollegeEN \\
     National Yang Ming Chiao Tung University \\
     in partial Fulfillment of the Requirements \\
     for the Degree of \\
-    \DegreeName \\
+    \NameofDegree \\
     \ifdefined\ResearchTopic
       in \\ \ResearchTopic
     \fi
