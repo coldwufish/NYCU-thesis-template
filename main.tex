@@ -1,12 +1,12 @@
-% update date: 2024.05.09
+% update date: 2024.06.04
 % 有問題or更新需求可email至: wufish@gmail.com
 % 也可以到github留言: https://github.com/coldwufish/NYCU-thesis-template
 
 % 載入會用到的套件, 通常不需要修改這邊的資料
 \input{covers/load_env.tex} 
 
-% 目錄的語言可以設定成全英文 or 全中文 (預設英文目錄)
-% 想使用中文目錄的話, 可把下面的註解拿掉
+% 預設英文目錄
+% 如果想用中文目錄, 再把下面的註解拿掉
 %\toggletrue{toc-use-cn}
 
 
@@ -34,24 +34,27 @@
 %\newcommand{\advisorEnNameB}{OOO Lin}     % 書名頁
 %\newcommand{\advisorEnNameBx}{Lin, OOO}   % 封面用
 
-% 論文的日期
+% 論文提交的日期，可以寫口試日期 or 畢業日期
 \newcommand{\ThesisDate}{August 2022}           
 \newcommand{\ThesisDateTW}{中華民國~ 一一一年八月} 
 
-% [書名頁] 請參考 學位授予名稱 的寫法
-% 下面變數也改為跟表格一樣的名稱, 後綴的CN與EN表示中英文
+% [書名頁] 可參考教務處的 學位授予名稱 寫法
 % https://aa.nycu.edu.tw/aa/ch/app/statisticalmap/list?module=statisticalmap&id=4358
+
+% 詳情請向系所承辦人員確認，以系所提供的資訊為主
+
+% 下面變數也改為跟表格一樣的名稱, 後綴的CN與EN表示中英文
 \newcommand{\NameofCollegeCN}{資訊學院} % 這個其實沒用到, 不過為了一致還是放進來
 \newcommand{\NameofCollegeEN}{College of Computer Science}
-\newcommand{\NameofDepartmentInstituteCN}{網路工程研究所} % 系所名稱, 請看下方[說明1]
-\newcommand{\NameofDepartmentInstituteEN}{Institute of Network Engineering}
+\newcommand{\NameofDepartmentInstituteCN}{資訊學院碩士在職專班} % 系所名稱, 請看下方[說明1]
+\newcommand{\NameofDepartmentInstituteEN}{Degree Program of Computer Science}
 \newcommand{\NameofDegree}{Master of Science} % 學位名稱, 常見的是Master of Science, 不過這個有很多寫法, 要記得查學校的資料.
 \newcommand{\ResearchTopic}{Computer Science} % 研究領域, 請看下方[說明2]
 
 % [說明1]
 % 這邊需要填寫 XX系 or OO所 的名稱
 % 如果你的單位是系所合一, 就用 Department. 如: 土木系碩士班請用 Department
-% 只有所的話, 就用Institute. 如: 電信所請用Institute
+% 只有所, 沒有大學部的話, 就用 Institute. 如: 電信所請用Institute
 
 % [說明2]
 % 書名頁的最後會有 in OOOO 的內容. 這個目前找不到通用性的寫法. 
@@ -61,7 +64,8 @@
 
 % --------------------------------------------
 
-
+% [紙本裝訂順序]
+% 封面 >> 書名頁 >> 電子檔著作權授權書 >> 紙本延後公開申請書(如果有) >> 審定同意書 >> 論文內容(致謝-附錄) >> 形式確認書 >> 共同作者貢獻度聲明書(彙編著作者)
 
 \begin{document}
 \begin{CJK*}{UTF8}{bkai}
@@ -93,19 +97,18 @@
 }
 % ====================================================
 
-% 口試結束後, 會有一些文件(3&5)需要口委們簽名
-% 這邊的東西是最後上傳到圖書館要加入的東西
-% (我當年畢業不需要4 XD)
-% ps. 圖書館有說: 授權書&審定書不用上傳，但要裝訂於紙本論文中。
+% [補充] 圖書館有說: 授權書(3)&審定書(5)要裝訂於紙本論文中，不用放在PDF電子檔裡面。
+% 原本有保留3跟5的插入語法, 就直接拿掉了 (因為也用不到)
 
-% 3. 論文電子檔著作權授權書: auth.pdf
-%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{auth.pdf}
+% 口試結束後, 會有一些文件(3&5)需要口委們簽名 (我當年畢業不需要4 XD)
+
+% 3. 論文電子檔著作權授權書: (要裝訂在紙本論文)
 
 % 4. 博士論文指導教授推薦書(碩士論文免附) 由各所自定，可有可無。: phd_recommend.pdf
 %\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{phd_recommend.pdf}
 
-% 5. 學位論文審定同意書(審定書): approval_ch.pdf
-%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{approval_ch.pdf}
+% 5. 學位論文審定同意書(審定書): (要裝訂在紙本論文)
+
 
 \frontmatter
 \pagenumbering{roman} % 小寫羅馬數字頁碼
@@ -140,7 +143,7 @@
 
 % ====================================================
 % 13. 參考文獻 Reference (檔案名稱 ref.bib)
-\ClearShipoutPicture % 把ref的浮水印關掉
+%\ClearShipoutPicture % 把ref的浮水印關掉
 
 \iftoggle{toc-use-cn} % 使用中文
 {\addcontentsline{toc}{chapter}{參考文獻}
@@ -153,14 +156,24 @@
 \bibliography{ref}
 }
 
+% 14. 附錄 Appendix (有需要再刪除註解 & 編輯該檔案)
+%\input{Sections/appendix} \newpage
 
-% 14. 附錄 Appendix (需要再自己插入)
 
 % =========================================
-% [113年2月19日後上傳圖書館博碩士論文系統者適用]
+% [113年2月19日後上傳圖書館博碩士論文系統者適用] 不用附在論文PDF檔裡面
 % 15. 學位論文發表形式確認書【詳附件 5】
-% 16. 著作彙編之學位論文資訊及彙編學術著作之共同作者貢獻聲明書(非著作彙
-% 可以去這個連結看15與16: https://aa.nycu.edu.tw/userfiles/aach/files/20240125111443441.pdf
+% 16. 著作彙編之學位論文資訊及彙編學術著作之共同作者貢獻聲明書
+
+% 說明1: https://aa.nycu.edu.tw/userfiles/aach/files/20240125111443441.pdf
+% 說明2: "國立陽明交通大學著作彙編之學位論文應行注意事項" https://bit.ly/457NTHk
+
+% [心得感想]
+% 畢業論文有使用到"就學期間發表"的論文, 就要填寫. 畢業後才刊登論文, 就屬於"不是".
+% 對博士生來說, 在學期間可能發表很多篇論文, 可以放在畢業論文裡, 只是要記得填寫著作彙編的表格. 
+
+% 著作彙編的說明
+% https://ethics.moe.edu.tw/resource/epaper/html/27/
 
 \end{CJK*}
 \balance

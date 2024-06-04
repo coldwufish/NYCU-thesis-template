@@ -46,7 +46,7 @@
 %\newcommand{\advisorEnNameB}{OOO Lin}     % 書名頁
 %\newcommand{\advisorEnNameBx}{Lin, OOO}   % 封面用
 
-% 論文的日期
+% 論文提交的日期，可以寫口試日期 or 畢業日期
 \newcommand{\ThesisDate}{August 2022}           
 \newcommand{\ThesisDateTW}{中華民國~ 一一一年八月} 
 ```
@@ -54,7 +54,11 @@
 #### 封面&書名頁
 
 ```
-% [書名頁] 請參考 學位授予名稱 的寫法
+% [書名頁] 可參考教務處的 學位授予名稱 寫法
+% https://aa.nycu.edu.tw/aa/ch/app/statisticalmap/list?module=statisticalmap&id=4358
+
+% 詳情請向系所承辦人員確認，以系所提供的資訊為主
+
 % 下面變數也改為跟表格一樣的名稱, 後綴的CN與EN表示中英文
 % 學校連結: https://aa.nycu.edu.tw/aa/ch/app/statisticalmap/list?module=statisticalmap&id=4358
 \newcommand{\NameofCollegeCN}{資訊學院} % 這個其實沒用到, 不過為了一致還是放進來
@@ -78,18 +82,18 @@
 
 
 #### 口試後才有的文件
-* 口試結束後, 會有一些文件(3&5)需要口委們簽名, 最後上傳到圖書館需要加這些東西. 論文初稿不需要. (我當年畢業不需要4 XD)
-* 圖書館有說: 授權書&審定書不用上傳，但要裝訂於紙本論文中。
+* 圖書館有說: **授權書(3)&審定書(5)要裝訂於紙本論文中**，不用放在PDF電子檔裡面。
+* 3跟5的插入語法就直接拿掉了 (因為也用不到)
 
 ```
-% 3. 論文電子檔著作權授權書: auth.pdf
-%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{auth.pdf}
+% 口試結束後, 會有一些文件(3&5)需要口委們簽名 (我當年畢業不需要4 XD)
 
-% 4. 博士論文指導教授推薦書(碩士論文免附): phd_recommend.pdf
+% 3. 論文電子檔著作權授權書: (要裝訂在紙本論文)
+
+% 4. 博士論文指導教授推薦書(碩士論文免附) 由各所自定，可有可無。: phd_recommend.pdf
 %\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{phd_recommend.pdf}
 
-% 5. 學位論文審定同意書(審定書): approval_ch.pdf
-%\includepdf[pages={1},pagecommand=
+% 5. 學位論文審定同意書(審定書): (要裝訂在紙本論文)
 ```
 
 #### 論文正文
@@ -120,6 +124,13 @@
 \bibliographystyle{IEEEtran}
 \bibliography{ref}
 ```
+
+  * [113年2月19日後上傳圖書館博碩士論文系統者適用] 不用附在論文PDF檔裡面
+    * 15. 學位論文發表形式確認書【詳附件 5】
+    * 16. 著作彙編之學位論文資訊及彙編學術著作之共同作者貢獻聲明書(非著作彙編之學位論文免附)
+    * 可以去這個連結看15與16: https://aa.nycu.edu.tw/userfiles/aach/files/20240125111443441.pdf
+      * 心得: 「著作彙編之學位論文」（Thesis by Publication，簡稱TBP） https://ethics.moe.edu.tw/resource/epaper/html/27/
+        * 看起來是拿已發表的論文作為畢業論文, 需要填寫這個資料. 如果沒有發論文, 看起來是選"不採用著作彙編".
 
 ---
 ---
@@ -169,8 +180,6 @@
 * 2023.12: 大幅度更新(!?) 直接整合碩博士的寫法, 還有把系所的資訊拉到主頁當變數, 也考慮到有共同指導教授的情境.
 * 2024.04: 調整第二頁的書名頁語法, 偵測中英文標題的文字長度, 讓它限制在一列的範圍. 並且加上minipage控制高度, 這樣高度就不會發生變化 (從研究生那邊開始 XD)
 * 2024.04: 把目錄的語法弄到另一個檔案(toc_var.tex), 讓主頁看起來比較清爽(!?) 現在上傳圖書館還要附上新的資料:
-  * [113年2月19日後上傳圖書館博碩士論文系統者適用]
-  * 15. 學位論文發表形式確認書【詳附件 5】
-  * 16. 著作彙編之學位論文資訊及彙編學術著作之共同作者貢獻聲明書(非著作彙
-  * 可以去這個連結看15與16: https://aa.nycu.edu.tw/userfiles/aach/files/20240125111443441.pdf
 * 2024.05: 更新一下 & 修飾主頁的內容
+* 2024.05: 新增subfigure範例 & 附錄範例
+* 2024.06: 根據圖書館的說明修了一下主頁(main.tex)的內容, 還有Excel2Latex的作法.
