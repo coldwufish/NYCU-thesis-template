@@ -1,8 +1,8 @@
 # NYCU-thesis-template (國立陽明交通大學的碩博士論文Latex樣板)
 * Overleaf template: https://www.overleaf.com/latex/templates/nycu-thesis-template/jgcmcnchmbrc
-* NYCU (National Yang Ming Chiao Tung University) thesis template. Some graduate students in our lab have submitted their thesis to NYCU library with this template. This template supports English TOC & 中文目錄. You can change this by uncommenting a command.
-* 實驗室同學大多使用此樣板上傳論文到圖書館, 應該是沒太多問題(!?)
-* 如果是overleaf的新使用者 & 願意贊助的話, 可以用我的推薦連結: https://www.overleaf.com?r=cc96d36b&rm=d&rs=b (幫我增加點數, 還缺三個就滿了 XD)
+* NYCU (National Yang Ming Chiao Tung University) thesis template. This template supports English TOC & 中文目錄. You can change this by uncommenting a command. The Word version of 封面&書名頁 is also available in this project.
+* 此樣板已多次上傳論文到圖書館, 應該是沒太多問題(!?)
+* 裡面也有提供word版的封面跟書名頁, 有需要的人可以直接取用: https://github.com/coldwufish/NYCU-thesis-template/tree/main/covers/%E5%AD%B8%E6%A0%A1%E6%A0%BC%E5%BC%8F%E8%B3%87%E6%96%99
 
 ----
 ## 使用方式
@@ -166,6 +166,9 @@
 * 臺灣博碩士論文知識加值系統 https://ndltd.ncl.edu.tw/
   * 可用來查詢前人的論文, 看之前的畢業生是怎麼寫
 * 圖書館FB: https://www.facebook.com/NYCULIB
+* 紙本裝訂順序
+  * 封面 >> 書名頁 >> 電子檔著作權授權書 >> 紙本延後公開申請書(如果有) >> 審定同意書 >> 論文內容(致謝-附錄) >> 形式確認書 >> 共同作者貢獻度聲明書(彙編著作者)
+* 注意: 有簽名的表單不用放到論文電子檔裡面, 上傳圖書館的時候會有相應欄位讓你上傳.
 
 ---
 ---
