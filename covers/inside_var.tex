@@ -1,14 +1,15 @@
 % 書名頁起至最後一頁皆須加入浮水印
 \AddToShipoutPicture*{
-    \put(-30,0){
+    \put(0,-15){
         \parbox[b][\paperheight]{\paperwidth}{%
             \vfill
             \centering
-            {\transparent{0.2}\includegraphics[scale=0.6]{covers/logo.png}}%
+            {\includegraphics[scale=1]{covers/logo2.png}}%
             \vfill
         }
     }
 }
+
 
 \begin{titlepage}
   \begin{center}
@@ -20,7 +21,7 @@
   
     \fontsize{14}{14}\selectfont{
     \begin{tabular}{r l c r l}
-    研\ \ 究\ \ 生： & \studentCnName & \hspace{0.6cm} & Student： & \studentEnName \\
+    研\hspace{7pt}究\hspace{7pt}生： & \studentCnName & \hspace{0.6cm} & Student： & \studentEnName \\
     指導教授： & \advisorCnName ~ 博士 & \hspace{0.6cm} & Advisor： & Dr. \advisorEnName \\
     \ifdefined\advisorCnNameB % 如果有共同指導教授
       & \advisorCnNameB ~ 博士 & & & Dr. \advisorEnNameB
@@ -28,7 +29,7 @@
     \end{tabular}
     }
     
-    \vspace{1.3cm}
+    \vspace{2.5cm}
 
     \fontsize{14}{17}\selectfont{國立陽明交通大學} ~\\
     \fontsize{14}{17}\selectfont{\NameofDepartmentInstituteCN} ~\\  

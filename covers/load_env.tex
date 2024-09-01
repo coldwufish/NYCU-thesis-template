@@ -1,19 +1,16 @@
-%\documentclass[12pt, draftclsnofoot, onecolumn]{IEEEtran}  % IEEE one-column 樣板
-\documentclass[12pt,a4paper,oneside]{book}                  % NYCU碩論樣板
-%\documentclass[conference]{IEEEtran}
-%\linespread{2}
-
+\documentclass[12pt,a4paper,oneside]{book}
 \usepackage[ top=2.5cm,bottom=2.5cm,left=3cm,right=2cm ]{ geometry }
 
-%\documentclass[oneside,zh]{nctuthesis}
-%\documentclass[conference]{IEEEtran}
-%\documentclass[onecolumn, journal, 12pt]{IEEEtran}
-%\documentclass[12pt,draftcls,onecolumn]{IEEEtran}
-%\setlength{\baselineskip}{12.7pt}
-%\usepackage{subfigure}
 \usepackage{subcaption}
 \usepackage{caption}
-\usepackage{CJKutf8}
+
+\usepackage[no-math]{fontspec}   %加這個就可以設定字體 
+\usepackage{xeCJK}       %讓中英文字體分開設置 
+\usepackage[UTF8,fontset=none,scheme=plain]{ctex}
+\setCJKmainfont[AutoFakeBold={4}, AutoFakeSlant=0.2]{TW-Kai}
+\setmainfont{Times New Roman}
+\usepackage{CJKnumb}
+
 \usepackage{indentfirst}
 \usepackage{array}
 \usepackage{multirow}
@@ -24,7 +21,7 @@
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{setspace}
-\usepackage{cite}
+%\usepackage{cite}
 \usepackage{balance}
 \usepackage{textcomp}
 \usepackage{color}
@@ -49,15 +46,10 @@ Style2*=\tiny$\blacksquare$ ,Style3*=$\circ$ ,Style4*=-- )
 \usepackage{eqparbox}
 \usepackage{textcomp}
 
-\usepackage[T1]{fontenc}
-\usepackage{enumerate}
-
-\renewcommand*\rmdefault{ptm}
-\usepackage[font={rm}]{caption}
-
 \renewcommand\algorithmiccomment[1]{%
   \hfill\#\ \eqparbox{COMMENT}{#1}%
 }
+
 \usepackage{verbatim}
 
 \usepackage{indentfirst}
@@ -67,12 +59,6 @@ Style2*=\tiny$\blacksquare$ ,Style3*=$\circ$ ,Style4*=-- )
 \counterwithout{table}{chapter}
 
 \usepackage{color}
-\usepackage{colortbl}
-\newcommand{\textred}[1]{\textcolor{red}{#1}}
-\newcommand{\textblue}[1]{\textcolor{blue}{#1}}
-\newcommand{\textcyan}[1]{\textcolor{cyan}{#1}}
-\newcommand{\myHuge}[1]{\fontsize{40}{50} #1}
-
 
 % source code hightlighting
 \usepackage{listings}
@@ -99,29 +85,30 @@ Style2*=\tiny$\blacksquare$ ,Style3*=$\circ$ ,Style4*=-- )
 \linespread{1.5}
 \usepackage{setspace}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
 \usepackage{pdfpages}
 
 % 浮水印套件 + 語法
-\usepackage{transparent}
 \usepackage{eso-pic}
 \newcommand\MyAtPageCenter[1]{\AtPageUpperLeft{%
 \put(\LenToUnit{.42\paperwidth},\LenToUnit{-.5\paperheight}){#1}}%
 }
 % 浮水印套件 + 語法 end
 
-\usepackage[center] {titlesec} %chapter1修改为第1章
-\usepackage{zhnumber} % 轉換中文數字
-\usepackage{titletoc, CJKnumb}
+% 調整標題格式
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+% 自訂語法
 \usepackage{etoolbox}
 \newtoggle{toc-use-cn}
 \newtoggle{iamphd}
 \newtoggle{EnableDynTitle}
 
 \usepackage{adjustbox}
-
-
 \usepackage{xstring}
 \usepackage{anyfontsize}
 
-%\usepackage[toc,page]{appendix}
+% book table語法
+\usepackage{booktabs}
+
+

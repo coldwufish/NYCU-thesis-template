@@ -1,10 +1,16 @@
+% 縮小目錄、標題上方的空白處
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{}{0pt}{\centering}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
 
 
 \iftoggle{toc-use-cn}
 { % true section. 使用中文
-\renewcommand{\contentsname}{目錄} % 使用中文目錄
 
 % 下面這些是要在目錄上加入...的符號與頁碼
+%\titlecontents{chapter}[0em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
+%\titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+%\titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+
 \titlecontents{chapter}[0em]{}{第\CJKnumber{\thecontentslabel}章 \hspace{0.5em}}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
 \titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 \titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
@@ -19,7 +25,10 @@
 \addcontentsline{toc}{chapter}{英文摘要} \input{Sections/0.3.Abstract} \newpage
 
 % 9. 目錄 中文版
-\addcontentsline{toc}{chapter}{目錄} \tableofcontents \newpage
+\renewcommand{\contentsname}{目錄} % 使用中文目錄
+\addcontentsline{toc}{chapter}{目錄}
+\tableofcontents \newpage
+
 
 % 10. 圖片目錄 中文版
 \renewcommand{\figurename}{圖} % 把caption的Figure改成"圖"
@@ -34,22 +43,49 @@
 \addcontentsline{toc}{chapter}{表目錄\vspace{0em}} \listoftables \newpage
 
 % 把Chapter改成 第X章
-\titleformat{\chapter}{\normalfont\huge\bfseries}{第\zhnum{chapter}章、}{0em}{}
+% 如果想要章節標題置中, 可在\normalfont前面加上\centering
+\titleformat{\chapter}{\normalfont\huge\bfseries}{第 \CJKnumber{\thechapter} 章、}{0em}{}
 \titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
 } % true end. 中文目錄設定結束
 % --------------------------------------------
 % --------------------------------------------
 { % false section. 使用英文目錄
-\renewcommand{\contentsname}{Contents} % 使用英文目錄
-
 % 下面這些是要在目錄上加入...的符號與頁碼
+
+
+\newcommand\entableofcontents{%
+  \if@twocolumn
+    \@restonecoltrue\onecolumn
+  \else
+    \@restonecolfalse
+  \fi
+  \chapter*{%
+    \encontentsname
+    \@mkboth{\MakeUppercase\encontentsname}
+            {\MakeUppercase\encontentsname}%
+  }%
+  \@starttoc{entoc}%
+  \if@restonecol\twocolumn\fi
+}
+\newcommand{\enchapapp}{Chapter}
+\apptocmd{\appendix}{\renewcommand{\enchapapp}{Appendix}}{}{}
+\newcommand{\addentoc}[2]{%
+  \ifstrequal{#1}{chapter}{%
+  \addcontentsline{entoc}{#1}{\setlength\@tempdima{\widthof{\textbf{Appendix\space{M}\space}}}\protect\numberline{\enchapapp\space\thechapter}#2}}%
+  {\addcontentsline{entoc}{#1}{\protect\numberline{\csname the#1\endcsname}#2}}%
+}
+\makeatother
+
+
 \titlecontents{chapter}[0em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
 \titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 \titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 
 % 6. 致謝 Acknowledgement
-\addcontentsline{toc}{chapter}{Acknowledgement} \input{Sections/0.1.Acknowledgement}\newpage
+\addcontentsline{toc}{chapter}{Acknowledgement} 
+\input{Sections/0.1.Acknowledgement}\newpage
 
 % 7 中文摘要 chinese abstract
 \addcontentsline{toc}{chapter}{Chinese Abstract} \input{Sections/0.2.Abstract_chinese} \newpage
@@ -58,18 +94,26 @@
 \addcontentsline{toc}{chapter}{English Abstract} \input{Sections/0.3.Abstract} \newpage
 
 % 9. 目錄 English version
+\renewcommand{\contentsname}{Contents}
 \addcontentsline{toc}{chapter}{Contents} \tableofcontents \newpage
 
 % 10. 圖片目錄 English version
+\renewcommand{\listfigurename}{List of Figures}
 \renewcommand{\numberline}[1]{Figure~#1\hspace*{1em}}
 \addcontentsline{toc}{chapter}{List of Figures} \listoffigures \newpage
 
 % 11. 表格目錄 English version, 有需要再打開
+\renewcommand{\listtablename}{List of Tables}
 \renewcommand{\numberline}[1]{Table~#1\hspace*{1em}}
 \addcontentsline{toc}{chapter}{List of Tables} \listoftables \newpage
 
 % 調整內文的chapter, section, subection的顯示方式, 改成靠左對齊+沒有換行
-\titleformat{\chapter}{\normalfont\huge\bfseries}{Chapter \thechapter.}{1em}{}
+% 如果想要章節標題置中, 可在\normalfont前面加上\centering
+\titleformat{\chapter}{\normalfont\huge\bfseries}{Chapter {\thechapter}.}{1em}{}
+
+
+
 \titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
 } % false end. 使用英文
