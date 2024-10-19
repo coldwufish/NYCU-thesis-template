@@ -1,4 +1,4 @@
-% update date: 2024.08.30
+% update date: 2024.09.04
 % 有問題or更新需求可email至: wufish@gmail.com
 % 也可以到github留言: https://github.com/coldwufish/NYCU-thesis-template
 
@@ -89,15 +89,16 @@
 % 書名頁起至最後一頁皆須加入浮水印
 % 目前語法不知道怎麼設定透明度, 就直接放刷淡的圖片放在頁面中央
 \AddToShipoutPicture{
-    \put(0,-15){
+    \put(-5,-15){
         \parbox[b][\paperheight]{\paperwidth}{%
             \vfill
             \centering
-            {\includegraphics[scale=1]{covers/logo2.png}}%
+            {\includegraphics[scale=0.65]{covers/logo2.pdf}}%
             \vfill
         }
     }
 }
+
 % ====================================================
 
 % [補充] 圖書館有說: 授權書(3)&審定書(5)要裝訂於紙本論文中，不用放在PDF電子檔裡面，要記得請口委簽名。
@@ -110,18 +111,17 @@
 
 % 5. 學位論文審定同意書(審定書): (要裝訂在紙本論文)
 
+% 6. 致謝 Acknowledgement {Sections/0.1.Acknowledgement}
+\input{Sections/0.1.Acknowledgement}\newpage
+
 % 頁碼設定
 \frontmatter
 \pagenumbering{roman} % 小寫羅馬數字頁碼
 {\fontfamily{ptm}\selectfont
 
-
-% 中英文目錄設定放在covers/toc_var.tex 裡面, 主頁看起來比較清爽
+% 中英文目錄設定放在covers/toc_var.tex 裡面, 主頁看起來比較清爽, 包含下面項目 (這邊的語法應該不太需要調整)
 \input{covers/toc_var.tex}
 
-
-% toc_var.tex裡面包含了 6-11的項目, 如下 (這邊的語法應該不太需要調整)
-% 6. 致謝 {Sections/0.1.Acknowledgement}
 % 7. 中文摘要 {Sections/0.2.Abstract_chinese}
 % 8. 英文摘要 {Sections/0.3.Abstract}
 % 9. 目錄 toc
@@ -158,9 +158,6 @@
 
 \bibliographystyle{IEEEtran}
 \bibliography{ref}
-
-% APA
-%\printbibliography
 
 }
 

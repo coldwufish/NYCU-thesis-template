@@ -15,9 +15,6 @@
 \titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 \titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 
-% 6. 致謝 Acknowledgement
-\addcontentsline{toc}{chapter}{誌\,\,\,\,\,謝} \input{Sections/0.1.Acknowledgement}\newpage
-
 % 7 中文摘要 chinese abstract
 \addcontentsline{toc}{chapter}{中文摘要} \input{Sections/0.2.Abstract_chinese} \newpage
 
@@ -53,39 +50,9 @@
 % --------------------------------------------
 { % false section. 使用英文目錄
 % 下面這些是要在目錄上加入...的符號與頁碼
-
-
-\newcommand\entableofcontents{%
-  \if@twocolumn
-    \@restonecoltrue\onecolumn
-  \else
-    \@restonecolfalse
-  \fi
-  \chapter*{%
-    \encontentsname
-    \@mkboth{\MakeUppercase\encontentsname}
-            {\MakeUppercase\encontentsname}%
-  }%
-  \@starttoc{entoc}%
-  \if@restonecol\twocolumn\fi
-}
-\newcommand{\enchapapp}{Chapter}
-\apptocmd{\appendix}{\renewcommand{\enchapapp}{Appendix}}{}{}
-\newcommand{\addentoc}[2]{%
-  \ifstrequal{#1}{chapter}{%
-  \addcontentsline{entoc}{#1}{\setlength\@tempdima{\widthof{\textbf{Appendix\space{M}\space}}}\protect\numberline{\enchapapp\space\thechapter}#2}}%
-  {\addcontentsline{entoc}{#1}{\protect\numberline{\csname the#1\endcsname}#2}}%
-}
-\makeatother
-
-
 \titlecontents{chapter}[0em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
 \titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
 \titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
-
-% 6. 致謝 Acknowledgement
-\addcontentsline{toc}{chapter}{Acknowledgement} 
-\input{Sections/0.1.Acknowledgement}\newpage
 
 % 7 中文摘要 chinese abstract
 \addcontentsline{toc}{chapter}{Chinese Abstract} \input{Sections/0.2.Abstract_chinese} \newpage
@@ -110,9 +77,6 @@
 % 調整內文的chapter, section, subection的顯示方式, 改成靠左對齊+沒有換行
 % 如果想要章節標題置中, 可在\normalfont前面加上\centering
 \titleformat{\chapter}{\normalfont\huge\bfseries}{Chapter {\thechapter}.}{1em}{}
-
-
-
 \titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
 
