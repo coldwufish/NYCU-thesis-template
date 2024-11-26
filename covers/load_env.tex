@@ -1,15 +1,19 @@
 \documentclass[12pt,a4paper,oneside]{book}
 \usepackage[ top=2.5cm,bottom=2.5cm,left=3cm,right=2cm ]{ geometry }
 
-\usepackage{subcaption}
-\usepackage{caption}
-
 \usepackage[no-math]{fontspec}   %加這個就可以設定字體 
+
 \usepackage{xeCJK}       %讓中英文字體分開設置 
 \usepackage[UTF8,fontset=none,scheme=plain]{ctex}
 \setCJKmainfont[AutoFakeBold={4}, AutoFakeSlant=0.2]{TW-Kai}
-\setmainfont{Times New Roman}
+%\setmainfont{Times New Roman}
+
+\usepackage[T1]{fontenc}
+\usepackage{times}
 \usepackage{CJKnumb}
+
+\usepackage{subcaption}
+\usepackage{caption}
 
 \usepackage{indentfirst}
 \usepackage{array}
