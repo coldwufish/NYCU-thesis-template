@@ -1,0 +1,32 @@
+# ============================================================
+# NYCU 論文模板 .gitignore（xelatex / Tectonic 編譯）
+# ============================================================
+
+# ---- LaTeX 編譯產物 ----
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.run.xml
+*.synctex.gz
+*.synctex(busy)
+*.xdv
+*.nav
+*.snm
+*.vrb
+
+# ---- 編譯輸出 ----
+# 只忽略根目錄輸出 PDF；covers/、img/ 內的輸入用 PDF 仍要進版控
+/main.pdf
+/out/
+
+# ---- OS / 編輯器雜項 ----
+.DS_Store
+Thumbs.db
